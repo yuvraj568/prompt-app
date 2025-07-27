@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header with search bar -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">Prompt</h1>
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search prompts...">
+            </div>
+        </div>
+    </header>
+
+    <!-- Main container with sidebar and content -->
+    <div class="main-container">
+        <!-- Sidebar with tags -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Filter by Tags</h3>
+                <button id="allPromptsBtn" class="all-prompts-btn active">All Prompts (0)</button>
+            </div>
+            <div id="tagsList" class="tags-list">
+                <!-- Tags will be dynamically inserted here -->
+            </div>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="content">
+            <div class="content-header">
+                <button id="addNewBtn" class="add-new-btn">Add New</button>
+            </div>
+            <div id="promptsContainer" class="prompts-container">
+                <!-- Prompt cards will be dynamically inserted here -->
+            </div>
+            <div id="emptyState" class="empty-state hidden">
+                <p>No prompts found. Click 'Add New' to begin.</p>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal for adding/editing prompts -->
+    <div id="modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Prompt</h2>
+                <button id="closeModalBtn" class="close-modal-btn">&times;</button>
+            </div>
+            <form id="promptForm" class="prompt-form">
+                <div class="form-group">
+                    <label for="promptText">Prompt Text</label>
+                    <textarea id="promptText" class="prompt-textarea" placeholder="Enter your prompt here..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="promptTags">Tags (comma-separated)</label>
+                    <input type="text" id="promptTags" class="prompt-tags-input" placeholder="e.g., frontend, css, responsive">
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+                    <button type="submit" id="saveBtn" class="save-btn">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Confirmation dialog -->
+    <div id="confirmDialog" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content confirm-dialog">
+            <h3>Confirm Delete</h3>
+            <p>Are you sure you want to delete this prompt?</p>
+            <div class="form-actions">
+                <button id="confirmCancelBtn" class="cancel-btn">Cancel</button>
+                <button id="confirmDeleteBtn" class="delete-btn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copy feedback message -->
+    <div id="copyMessage" class="copy-message hidden">
+        <span>Copied!</span>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
